@@ -12,6 +12,7 @@ my_fruit_list = my_fruit_list.set_index("Fruit")
 
 # Picklist here so they can pick the furit they want to include
 # streamlit.multiselect("Pick some fruits:", list(my_fruit_list.index), ['Avocado','Strawberries'])
+# The dropdown is here in the list as my_fruit_index
 fruits_selected = streamlit.multiselect("Pick some fruits:", list(my_fruit_list.index), ['Avocado','Strawberries'])
 fruits_to_show = my_fruit_list.loc[fruits_selected]
 
