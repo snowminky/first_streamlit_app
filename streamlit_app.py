@@ -25,7 +25,7 @@ streamlit.dataframe(fruits_to_show)
 streamlit.header('Fruityvice Fruit Advice!')
 import requests 
 fruityvice_response = requests.get("https://fruityvice.com/api/fruit/watermelon")
-#streamlit.text(fruityvice_response.json()) # Asked to remove this line after line 34
+#streamlit.text(fruityvice_response.json()) # Asked to remove this line after line 34 -- Removes the json data format line
 
 
 #take the json version of the respone and normalize it - put it into a table
