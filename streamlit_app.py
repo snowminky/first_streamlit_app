@@ -31,19 +31,19 @@ try:
 		#added after line 38
 		#fruit_choice = streamlit.text_input('What fruit would you like information about?','Kiwi')
 	fruit_choice = streamlit.text_input('What fruit would you like information about?')
-	#streamlit.write('The user entered', fruit_choice) 
-if not fruit_choice:
-streamlit.error("Please select a fruit to get information.")
-else
-fruityvice_response = requests.get("https://fruityvice.com/api/fruit/" + fruit_choice)
-			#streamlit.text(fruityvice_response.json()) # Asked to remove this line after line 38 -- Removes the json data format line
-			#take the json version of the respone and normalize it - put it into a table
-	fruityvice_normalized = pandas.json_normalize(fruityvice_response.json())
-			#output it on the screen as a table
-	streamlit.dataframe(fruityvice_normalized)
-except URLError as e:
-	streamlit.error()
-		
+	 
+	if not fruit_choice:
+		streamlit.error("Please select a fruit to get information.")
+	else
+		fruityvice_response = requests.get("https://fruityvice.com/api/fruit/" + fruit_choice)
+				#streamlit.text(fruityvice_response.json()) # Asked to remove this line after line 38 -- Removes the json data format line
+				#take the json version of the respone and normalize it - put it into a table
+		fruityvice_normalized = pandas.json_normalize(fruityvice_response.json())
+				#output it on the screen as a table
+		streamlit.dataframe(fruityvice_normalized)
+	except URLError as e:
+		streamlit.error()
+
 		
 		
 		
