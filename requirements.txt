@@ -3,5 +3,5 @@
 charset-normalizer==2.0.12 
 
 #snowflake-connector-python==2.7.9
-###pyarrow<6.1.0,>=6.0.0; extra == "pandas"
-snowflake-connector-python[pandas] pyarrow<8.1.0,>=8.0.0
+#pyarrow<6.1.0,>=6.0.0; extra == "pandas"
+#snowflake-connector-python[pandas] 
