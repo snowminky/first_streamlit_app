@@ -31,7 +31,7 @@ try:
 		#added after line 38
 		#fruit_choice = streamlit.text_input('What fruit would you like information about?','Kiwi')
 	fruit_choice = streamlit.text_input('What fruit would you like information about?')
-		#streamlit.write('The user entered', fruit_choice) 
+	#streamlit.write('The user entered', fruit_choice) 
 if not fruit_choice:
 	streamlit.error("Please select a fruit to get information.")
 else
