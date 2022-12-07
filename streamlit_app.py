@@ -25,6 +25,16 @@ fruits_to_show = my_fruit_list.loc[fruits_selected]
 	# streamlit.dataframe(my_fruit_list)
 streamlit.dataframe(fruits_to_show)  
 
+#create the repeatable code block - FUNCTION
+def get_fruityvice_data(this_fruit_choice):
+	fruityvice_response = requests.get("https://fruityvice.com/api/fruit/" + fruit_choice)
+		#streamlit.text(fruityvice_response.json()) # Asked to remove this line after line 38 -- Removes the json data format line
+		#take the json version of the respone and normalize it - put it into a table
+	fruityvice_normalized = pandas.json_normalize(fruityvice_response.json())
+	return fruityvice_normalized
+
+
+
 	#New Section to display fruityvice api response
 streamlit.header('Fruityvice Fruit Advice!')
 try: 
@@ -35,11 +45,8 @@ try:
 	if not fruit_choice:
 		streamlit.error("Please select a fruit to get information.")
 	else:
-		fruityvice_response = requests.get("https://fruityvice.com/api/fruit/" + fruit_choice)
-				#streamlit.text(fruityvice_response.json()) # Asked to remove this line after line 38 -- Removes the json data format line
-				#take the json version of the respone and normalize it - put it into a table
-		fruityvice_normalized = pandas.json_normalize(fruityvice_response.json())
-				#output it on the screen as a table
+		back_from_function = get_fruityvice_data(fruit_choice) 
+		#output it on the screen as a table
 		streamlit.dataframe(fruityvice_normalized)
 except URLError as e:
 	streamlit.error()
